@@ -20,7 +20,7 @@ jobs:
         ssh_cert: ${{ secrets.SSH_CERT }}
         ssh_key: ${{ secrets.SSH_KEY }}
     - run: |
-        docker context use github_cicd
+        docker context use github_cicd;
         docker-compose down;
         docker compose build;
         docker-compose up -d;
