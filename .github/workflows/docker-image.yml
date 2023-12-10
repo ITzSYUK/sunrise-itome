@@ -20,7 +20,7 @@ jobs:
         ssh_cert: ${{ secrets.SSH_CERT }}
         ssh_key: ${{ secrets.SSH_KEY }}
     - run: |
-        docker --context github_cicd stack deploy --compose-file stack/docker-compose.yml my-stack
+        docker --context github_cicd stack deploy --compose-file ./docker-compose.yml my-stack
 #        docker --context github_cicd compose down;
 #        docker --context github_cicd compose build ./docker-compose.yml;
 #        docker --context github_cicd compose up -d;
