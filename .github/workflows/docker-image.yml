@@ -21,7 +21,10 @@ jobs:
         ssh_key: ${{ secrets.SSH_KEY }}
     - run: |
         docker context use github_cicd;
-        docker-compose down;
-        docker compose build;
-        docker-compose up -d;
-        docker system prune --all --force;
+        docker --context github_cicd compose down;
+        docker --context github_cicd compose build ./docker-compose.yml;
+        docker --context github_cicd compose up -d;
+        docker --context github_cicd prune -all --force;
+#        docker-compose build ./docker-compose.yml;
+#        docker-compose up -d;
+#        docker system prune --all --force;
