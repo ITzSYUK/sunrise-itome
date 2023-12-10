@@ -23,7 +23,7 @@ jobs:
         ssh_key: ${{ secrets.SSH_KEY }}
         use_context: true
     - run: |
-        docker ps
+        docker --context github_cicd ps;
 #        docker --context github_cicd compose down;
 #        docker --context github_cicd compose build ./docker-compose.yml;
 #        docker --context github_cicd compose up -d;
