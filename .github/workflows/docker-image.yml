@@ -14,13 +14,13 @@ jobs:
 
     steps:
     - uses: arwynfr/actions-docker-context@v2
-    - with:
+      with:
         docker_host: 'ssh://root@185.119.56.146'
         context_name: 'github_cicd'
         ssh_cert: ${{ secrets.SSH_CERT }}
         ssh_key: ${{ secrets.SSH_KEY }}
     - name: Build the Docker image of node js application
-      run: |
+    - run: |
         docker context use github_cicd
         docker-compose down;
         docker compose build;
