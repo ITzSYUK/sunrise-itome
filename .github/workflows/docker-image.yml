@@ -1,0 +1,24 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image of node js application
+      run: |
+        docker context create deploing --docker "host=tcp://185.119.56.146,ca=${{CA_FILE}},cert=${{CERT_FILE}},key=${{KEY_FILE}}";
+        docker context use deploing;
+        docker-compose down;
+        docker compose build;
+        docker-compose up -d;
+        docker system prune --all --force;
