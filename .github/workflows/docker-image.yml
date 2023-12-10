@@ -14,14 +14,16 @@ jobs:
     name: 'Publish on the development server'
 
     steps:
-    - uses: arwynfr/actions-docker-context@v2
+    - name: Create and use production server Docker Context
+      uses: arwynfr/actions-docker-context@v2
       with:
         docker_host: 'ssh://root@sun-diego.ru'
         context_name: 'github_cicd'
         ssh_cert: ${{ secrets.SSH_CERT }}
         ssh_key: ${{ secrets.SSH_KEY }}
+        use_context: true
     - run: |
-        docker --context github_cicd ps
+        docker ps
 #        docker --context github_cicd compose down;
 #        docker --context github_cicd compose build ./docker-compose.yml;
 #        docker --context github_cicd compose up -d;
