@@ -11,6 +11,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    name: 'Publish on the development server'
 
     steps:
     - uses: arwynfr/actions-docker-context@v2
