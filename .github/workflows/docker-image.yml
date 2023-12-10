@@ -19,8 +19,8 @@ jobs:
       with:
         docker_host: 'ssh://root@sun-diego.ru:22'
         context_name: 'github_cicd'
-        ssh_cert: ${{ env.SSH_CERT }}
-        ssh_key: ${{ env.SSH_KEY }}
+        ssh_cert: ${{ secrets.SSH_CERT }}
+        ssh_key: ${{ secrets.SSH_KEY }}
         use_context: true
     - run: |
         docker --context github_cicd ps;
