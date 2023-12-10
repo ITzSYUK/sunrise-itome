@@ -16,7 +16,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image of node js application
       run: |
-        docker context create deploing --docker "host=tcp://185.119.56.146,ca=${{vars.CA_FILE}},cert=${{vars.CERT_FILE}},key=${{vars.KEY_FILE}}";
+        docker context create deploing --docker "host=tcp://185.119.56.146,ca=${{ secrets.CA_FILE }},cert=${{ secrets.CERT_FILE }},key=${{ secrets.KEY_FILE }}";
         docker context use deploing;
         docker-compose down;
         docker compose build;
