@@ -17,7 +17,7 @@ jobs:
     - name: Create and use production server Docker Context
       uses: arwynfr/actions-docker-context@v2
       with:
-        docker_host: 'ssh://root@185.119.56.146:22'
+        docker_host: 'ssh://root@sun-diego.ru:22'
         context_name: 'github_cicd'
         ssh_cert: ${{ secrets.SSH_CERT }}
         ssh_key: ${{ secrets.SSH_KEY }}
