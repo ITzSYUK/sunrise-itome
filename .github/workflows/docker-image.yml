@@ -15,7 +15,7 @@ jobs:
 
     steps:
     - name: Create and use production server Docker Context
-    - uses: actions/checkout@v4
+      uses: actions/checkout@v4
       env:
         CA: ${{ secrets.CA_FILE }}
         CERT: ${{ secrets.CERT_FILE }}
