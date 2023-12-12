@@ -15,11 +15,12 @@ jobs:
 
     steps:
     - name: Create and use production server Docker Context
+    - uses: actions/checkout@v4
       env:
         CA: ${{ secrets.CA_FILE }}
         CERT: ${{ secrets.CERT_FILE }}
         KEY: ${{ secrets.KEY_FILE }}
-      run: |
+    - run: |
         docker context create dev --docker "host=tcp://sun-diego.ru:2376,ca=$CA,cert=$CERT,key=$KEY";
         docker context use dev;
         docker ps;
