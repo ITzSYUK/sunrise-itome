@@ -24,9 +24,3 @@ jobs:
         docker context create deploing --docker "host=tcp://185.119.56.146,ca=$CA,cert=$CERT,key=$KEY";
         docker context use deploing;
         docker ps;
-#        docker --context github_cicd compose down;
-#        docker --context github_cicd compose build ./docker-compose.yml;
-#        docker --context github_cicd compose up -d;
-#        docker --context github_cicd prune -all --force;
-#        docker-compose build ./docker-compose.yml;
-#        docker-compose up -d;
