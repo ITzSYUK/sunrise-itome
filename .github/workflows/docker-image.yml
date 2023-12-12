@@ -21,7 +21,7 @@ jobs:
         CERT: ${{ secrets.CERT_FILE }}
         KEY: ${{ secrets.KEY_FILE }}
     - run: |
-        docker context create deploing --docker "host=tcp://185.119.56.146,ca=${{ CA }},cert=${{ CERT }},key=${{ KEY }}";
+        docker context create deploing --docker "host=tcp://185.119.56.146,ca=$CA,cert=$CERT,key=$KEY";
         docker context use deploing;
         docker-compose down;
 #        docker --context github_cicd compose down;
