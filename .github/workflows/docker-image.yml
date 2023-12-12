@@ -21,6 +21,6 @@ jobs:
         CERT: ${{ secrets.CERT_FILE }}
         KEY: ${{ secrets.KEY_FILE }}
     - run: |
-        docker context create deploing --docker "host=tcp://sun-diego:2376,ca=$CA,cert=$CERT,key=$KEY";
+        docker context create deploing --docker "host=tcp://sun-diego.ru:2376,ca=$CA,cert=$CERT,key=$KEY";
         docker context use deploing;
         docker ps;
