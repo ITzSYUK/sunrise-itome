@@ -23,4 +23,4 @@ jobs:
     - run: |
         docker context create dev --docker "host=tcp://185.119.56.146:2376,ca=$CA,cert=$CERT,key=$KEY";
         docker context use dev;
-        docker ps;
+        docker --context dev ps;
