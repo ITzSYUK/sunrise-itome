@@ -21,6 +21,6 @@ jobs:
         CERT: ${{ secrets.CERT_FILE }}
         KEY: ${{ secrets.KEY_FILE }}
     - run: |
-        docker context create dev --docker "host=tcp://sun-diego.ru:2376,ca=$CA,cert=$CERT,key=$KEY";
+        docker context create dev --docker "host=tcp://185.119.56.146:2376,ca=$CA,cert=$CERT,key=$KEY";
         docker context use dev;
         docker ps;
