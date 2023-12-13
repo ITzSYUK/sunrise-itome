@@ -17,10 +17,11 @@ jobs:
     - name: Create and use production server Docker Context
       uses: actions/checkout@v4
       env:
-        CA: ${{ secrets.CA_FILE }}
-        CERT: ${{ secrets.CERT_FILE }}
-        KEY: ${{ secrets.KEY_FILE }}
+#        CA: ${{ secrets.CA_FILE }}
+#        CERT: ${{ secrets.CERT_FILE }}
+#        KEY: ${{ secrets.KEY_FILE }}
+        SSH_KEY: ${{ secrets.SSH_KEY }}
     - run: |
-        docker context create dev --docker "host=tcp://185.119.56.146:2376,ca=$CA,cert=$CERT,key=$KEY";
+        docker context create --docker="host=ssh://root@sun-diego.ru:22" dev
         docker context use dev;
-        docker --context dev ps;
+        docker ps;
