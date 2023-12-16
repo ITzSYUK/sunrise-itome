@@ -18,8 +18,8 @@ jobs:
       uses: D3rHase/ssh-command-action@v0.2.2
       with:
         host: ${{ secrets.SSH_HOST }} 
-        username: ${{ secrets.SSH_USER }}
-        SSH_KEY: ${{ secrets.SSH_KEY }}
+        user: ${{ secrets.SSH_USER }}
+        private_key: ${{ secrets.SSH_KEY }}
         command: |
           cd /var/www/sunrise.itome.com
           git checkout main
