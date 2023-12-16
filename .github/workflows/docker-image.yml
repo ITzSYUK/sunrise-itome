@@ -20,4 +20,10 @@ jobs:
         host: ${{ secrets.HOST }} 
         user: ${{ secrets.USER }}
         private_key: ${{ secrets.PRIVATE_KEY }}
-        command: echo "dadaya"
+        command: |
+          cd /var/www/sunrise-itome
+          git checkout main
+          git pull
+          docker-compose down
+          docker-compose up -d
+          docker system prune -a -f
