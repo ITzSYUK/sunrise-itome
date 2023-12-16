@@ -15,13 +15,15 @@ jobs:
 
     steps:
     - name: Create and use production server Docker Context
-      uses: actions/checkout@v4
-      env:
-#        CA: ${{ secrets.CA_FILE }}
-#        CERT: ${{ secrets.CERT_FILE }}
-#        KEY: ${{ secrets.KEY_FILE }}
+      uses: D3rHase/ssh-command-action@v0.2.2
+      with:
+        host: ${{ secrets.SSH_HOST }} 
+        username: ${{ secrets.SSH_USER }}
         SSH_KEY: ${{ secrets.SSH_KEY }}
-    - run: |
-        docker context create --docker="host=ssh://root@sun-diego.ru:22" dev
-        docker context use dev;
-        docker ps;
+        command: |
+          cd /var/www/sunrise.itome.com
+          git checkout main
+          git pull
+          docker-compose down
+          docker-compose up -d
+          docker system prune -a -f
