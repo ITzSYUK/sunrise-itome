@@ -17,9 +17,9 @@ jobs:
     - name: Create and use production server Docker Context
       uses: D3rHase/ssh-command-action@v0.2.2
       with:
-        host: ${{ secrets.SSH_HOST }} 
-        user: ${{ secrets.SSH_USER }}
-        private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        host: ${{ secrets.HOST }} 
+        user: ${{ secrets.USER }}
+        private_key: ${{ secrets.PRIVATE_KEY }}
         command: |
           cd /home/github/
           git checkout main
