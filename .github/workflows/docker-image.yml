@@ -20,10 +20,4 @@ jobs:
         host: ${{ secrets.HOST }} 
         user: ${{ secrets.USER }}
         private_key: ${{ secrets.PRIVATE_KEY }}
-        command: |
-          cd /home/github/
-          git checkout main
-          git pull
-          docker-compose down
-          docker-compose up -d
-          docker system prune -a -f
+        command: echo "dadaya"
